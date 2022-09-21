@@ -81,18 +81,6 @@ app.get("/api/season/:season/episode/:episode", async (request, response) => {
   }
 });
 
-app.use((error, req, res, next) => {
-  // Invalid request
-  res.status(404).send({
-    error: {
-      name: "Error",
-      status: 404,
-      message: "Invalid Request",
-      statusCode: 404,
-    },
-  });
-});
-
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server running on ${PORT}`);
