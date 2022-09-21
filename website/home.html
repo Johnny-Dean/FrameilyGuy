@@ -41,7 +41,7 @@
 </html>
 <script>
  const replaceImage = async () => {
-    let response = await fetch("http://localhost:3001/api/")
+    let response = await fetch("https://frameilyguy-production.up.railway.app/api")
     response = await response.json() 
     const src = response.url
     const oldFrame = document.getElementById("frame");
