@@ -1,0 +1,24 @@
+{
+  "name": "frameilyguy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Johnny Dean",
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^1.32.0",
+    "cloudinary-core": "^2.13.0",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "ffmpeg": "^0.0.4",
+    "graceful-fs": "^4.2.10",
+    "node-fetch": "^3.2.10",
+    "nodemon": "^2.0.19",
+    "system-sleep": "^1.3.7"
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frameily Guy</title>
+  </head>
+  <body onload="replaceImage()">
+    <div class="header">
+      <h1>Frameily Guy</h1>
+      <p>Get any frame of family guy</p>      
+      <button>Get Frame</button>
+      <img id="frame" src="" alt="Random Family Guy Frame" />
+
+    </div>
+    <div class="examples">
+      <div class="example"">
+        <p>Get a frame from a random season and a random episode</p>
+        <code>
+          http://frameilyguy.com/api/ </br>
+          http://frameilyguy.com/api/random
+        </code>
+      </div>
+      <div class="example"">
+        <p>Get a frame from a specific season and a random episode</p>
+        <code>
+          http://frameilyguy.com/api/season/1 
+        </code>
+      </div>
+  
+      <div class="example"">
+        <p>Get a frame from a specific season and a specific episode</p>
+        <code>
+          http://frameilyguy.com/api/season/1/episode/1 
+        </code>
+      </div>
+      
+    </div>
+  </body>
+</html>
+<script>
+ const replaceImage = async () => {
+    let response = await fetch("http://localhost:3001/api/")
+    response = await response.json() 
+    const src = response.url
+    const oldFrame = document.getElementById("frame");
+    const newFrame = new Image();
+    newFrame.id = "frame"
+    newFrame.src = src;
+    oldFrame.parentNode.insertBefore(newFrame, oldFrame);
+    oldFrame.parentNode.removeChild(oldFrame);
+ }
+
+ document.querySelector("button").addEventListener("click", replaceImage);
+</script>
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+  }
+
+  h1, p {
+    margin: 0
+  }
+
+  img {
+    max-width: 600px;
+    max-height: 600px;
+  }
+
+  body {
+    margin-top: .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25em;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
+
+  button {
+    margin: .5em;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25em;
+  }
+
+  .example, .examples {
+    display: flex;
+    flex-direction: column;
+  }
+  .examples {
+    gap: .5em;
+  }
+</style>
