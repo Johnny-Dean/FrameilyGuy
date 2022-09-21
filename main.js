@@ -9,10 +9,9 @@ app.get("/", (request, response) => {
 });
 
 app.get(["/api/random", "/api"], async (request, response) => {
-  console.log("ran?");
   const season_index = Math.floor(Math.random() * (19 - 0) + 0);
   const season = seasons[season_index];
-  const episode_index = Math.floor(Math.random() * (season.length - 1) + 1);
+  const episode_index = Math.floor(Math.random() * (season.length - 1) + 1) - 1;
   const episode = season.find((episode) => episode.id === episode_index);
   const picture_index = Math.floor(Math.random() * (episode.no_pics - 1) + 1);
   const public_id = `s${season_index + 1}e${episode_index}f${picture_index}`;
@@ -37,9 +36,9 @@ app.get("/api/season/:season", async (request, response) => {
     });
   } else {
     const season_index = request.params.season;
-    const episode_index = Math.floor(
-      Math.random() * (seasons[season_index - 1].length - 1) + 1
-    );
+    const episode_index =
+      Math.floor(Math.random() * (seasons[season_index - 1].length - 1) + 1) -
+      1;
     const episode = seasons[season_index - 1].find(
       (episode) => episode.id === episode_index
     );
