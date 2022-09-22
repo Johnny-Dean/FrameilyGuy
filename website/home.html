@@ -44,7 +44,6 @@
     let response = await fetch("https://www.frameilyguy.com/api")
     response = await response.json() 
     const src = response.url
-    console.log(response)
     const oldFrame = document.getElementById("frame");
     const newFrame = new Image();
     newFrame.id = "frame"
