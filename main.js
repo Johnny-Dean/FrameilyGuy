@@ -17,7 +17,8 @@ app.get(["/api/random", "/api"], async (request, response) => {
   const public_id = `s${season_index + 1}e${episode_index}f${picture_index}`;
   try {
     const image = await cl.api.resource(public_id);
-    response.send({ url: image.url });
+    console.log(image);
+    response.send({ url: image.secure_url });
   } catch (err) {
     console.log(err);
   }
@@ -45,7 +46,7 @@ app.get("/api/season/:season", async (request, response) => {
     const picture_index = Math.floor(Math.random() * (episode.no_pics - 1) + 1);
     const public_id = `s${season_index}e${episode_index}f${picture_index}`;
     const image = await cl.api.resource(public_id);
-    response.send({ url: image.url });
+    response.send({ url: image.secure_url });
   }
 });
 
@@ -80,7 +81,7 @@ app.get("/api/season/:season/episode/:episode", async (request, response) => {
     const picture_index = Math.floor(Math.random() * (episode.no_pics - 1) + 1);
     const public_id = `s${season_index}e${episode_index}f${picture_index}`;
     const image = await cl.api.resource(public_id);
-    response.send({ url: image.url });
+    response.send({ url: image.secure_url });
   }
 });
 
