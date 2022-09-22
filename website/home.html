@@ -41,7 +41,7 @@
 </html>
 <script>
  const replaceImage = async () => {
-    let response = await fetch("https://www.frameilyguy.com/")
+    let response = await fetch("https://www.frameilyguy.com/api")
     response = await response.json() 
     const src = response.url
     console.log(response)
@@ -85,7 +85,7 @@
   }
 
   p {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 
   button {
